@@ -1,0 +1,148 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"NONE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"3b689551-c083-4aaa-a771-9be382fa37f5\" name=\"Changes\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitHubPullRequestSearchHistory\"><![CDATA[{\n  \"lastFilter\": {\n    \"state\": \"OPEN\",\n    \"assignee\": \"AlexKolovos21\"\n  }\n}]]></component>\n  <component name=\"GithubPullRequestsUISettings\"><![CDATA[{\n  \"selectedUrlAndAccountId\": {\n    \"url\": \"https://github.com/AlexKolovos21/TasteBooker.git\",\n    \"accountId\": \"e9c1504b-e939-465d-9ee4-04e7dee250d9\"\n  }\n}]]></component>\n  <component name=\"ProjectColorInfo\"><![CDATA[{\n  \"associatedIndex\": 3\n}]]></component>\n  <component name=\"ProjectId\" id=\"2xV2bJY1pjy5xvZgImlQwOcyMab\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\n    \"RunOnceActivity.git.unshallow\": \"true\",\n    \"RunOnceActivity.readMode.enableVisualFormatting\": \"true\",\n    \"cf.first.check.clang-format\": \"false\",\n    \"cidr.known.project.marker\": \"true\",\n    \"git-widget-placeholder\": \"main\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"last_opened_file_path\": \"C:/Users/akolv/OneDrive/Documents/GitHub/TasteBooker\",\n    \"settings.editor.selected.configurable\": \"AndroidSdkUpdater\"\n  }\n}]]></component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"3b689551-c083-4aaa-a771-9be382fa37f5\" name=\"Changes\" comment=\"\" />\n      <created>1748008989346</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1748008989346</updated>\n    </task>\n    <servers />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 183652f810ffdf61ddd215f783a13c4988729947)
++++ b/.idea/workspace.xml	(date 1748011798607)
+@@ -16,40 +16,111 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+-  "lastFilter": {
+-    "state": "OPEN",
+-    "assignee": "AlexKolovos21"
++  <component name="GitHubPullRequestSearchHistory">{
++  &quot;lastFilter&quot;: {
++    &quot;state&quot;: &quot;OPEN&quot;,
++    &quot;assignee&quot;: &quot;AlexKolovos21&quot;
+   }
+-}]]></component>
+-  <component name="GithubPullRequestsUISettings"><![CDATA[{
+-  "selectedUrlAndAccountId": {
+-    "url": "https://github.com/AlexKolovos21/TasteBooker.git",
+-    "accountId": "e9c1504b-e939-465d-9ee4-04e7dee250d9"
++}</component>
++  <component name="GithubPullRequestsUISettings">{
++  &quot;selectedUrlAndAccountId&quot;: {
++    &quot;url&quot;: &quot;https://github.com/AlexKolovos21/TasteBooker.git&quot;,
++    &quot;accountId&quot;: &quot;e9c1504b-e939-465d-9ee4-04e7dee250d9&quot;
+   }
+-}]]></component>
+-  <component name="ProjectColorInfo"><![CDATA[{
+-  "associatedIndex": 3
+-}]]></component>
++}</component>
++  <component name="ProjectColorInfo">{
++  &quot;associatedIndex&quot;: 3
++}</component>
+   <component name="ProjectId" id="2xV2bJY1pjy5xvZgImlQwOcyMab" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.cidr.known.project.marker": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+-    "cf.first.check.clang-format": "false",
+-    "cidr.known.project.marker": "true",
+-    "git-widget-placeholder": "main",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/akolv/OneDrive/Documents/GitHub/TasteBooker",
+-    "settings.editor.selected.configurable": "AndroidSdkUpdater"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
++    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
++    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/akolv/OneDrive/Documents/GitHub/TasteBooker&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;
+   }
+-}]]></component>
++}</component>
++  <component name="RunManager">
++    <configuration name="Unnamed" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false" nameIsGenerated="true">
++      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
++      <option name="DEPLOY" value="true" />
++      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
++      <option name="DEPLOY_AS_INSTANT" value="false" />
++      <option name="ARTIFACT_NAME" value="" />
++      <option name="PM_INSTALL_OPTIONS" value="" />
++      <option name="ALL_USERS" value="false" />
++      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
++      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
++      <option name="CLEAR_APP_STORAGE" value="false" />
++      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
++      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
++      <option name="MODE" value="default_activity" />
++      <option name="RESTORE_ENABLED" value="false" />
++      <option name="RESTORE_FILE" value="" />
++      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
++      <option name="CLEAR_LOGCAT" value="false" />
++      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
++      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
++      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
++      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
++      <option name="DEBUGGER_TYPE" value="Auto" />
++      <Auto>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
++        <option name="DEBUG_SANDBOX_SDK" value="false" />
++      </Auto>
++      <Hybrid>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
++        <option name="DEBUG_SANDBOX_SDK" value="false" />
++      </Hybrid>
++      <Java>
++        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
++        <option name="DEBUG_SANDBOX_SDK" value="false" />
++      </Java>
++      <Native>
++        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
++        <option name="SHOW_STATIC_VARS" value="true" />
++        <option name="WORKING_DIR" value="" />
++        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
++        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
++        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
++        <option name="DEBUG_SANDBOX_SDK" value="false" />
++      </Native>
++      <Profilers>
++        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
++        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
++        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
++        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
++      </Profilers>
++      <option name="DEEP_LINK" value="" />
++      <option name="ACTIVITY" value="" />
++      <option name="ACTIVITY_CLASS" value="" />
++      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
++      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
++      <method v="2" />
++    </configuration>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
