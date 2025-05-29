@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -29,6 +30,7 @@ public class ProfileActivity extends AppCompatActivity {
         setupToolbar();
         initViews();
         setupClickListeners();
+        loadUserData();
     }
 
     private void setupToolbar() {
@@ -45,11 +47,6 @@ public class ProfileActivity extends AppCompatActivity {
         editProfileButton = findViewById(R.id.editProfileButton);
         myBookingsButton = findViewById(R.id.myBookingsButton);
         logoutButton = findViewById(R.id.logoutButton);
-
-        // Φόρτωση δεδομένων χρήστη από SharedPreferences ή βάση δεδομένων
-        // Προσωρινά, ορισμός δοκιμαστικών δεδομένων
-        userName.setText("Όνομα Χρήστη");
-        userEmail.setText("user@example.com");
     }
 
     private void setupClickListeners() {
@@ -62,8 +59,23 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
         logoutButton.setOnClickListener(v -> {
-            // Υλοποίηση λειτουργίας αποσύνδεσης
-            finish();
+            // Καθαρισμός των δεδομένων συνεδρίας
+            SharedPreferences.Editor editor = getSharedPreferences("AppPrefs", MODE_PRIVATE).edit();
+            editor.clear();
+            editor.apply();
+
+            // Επιστροφή στην οθόνη σύνδεσης
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+            startActivity(intent);
+            
+            Toast.makeText(this, "Έχετε αποσυνδεθεί επιτυχώς", Toast.LENGTH_SHORT).show();
+            
+            // Τερματισμός της εφαρμογής
+            finishAffinity();
         });
     }
 
@@ -75,6 +87,34 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void loadUserData() {
         SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
-        int userId = prefs.getInt("userId", -1);
+        String name = prefs.getString("userName", "");
+        String email = prefs.getString("userEmail", "");
+        
+        if (!name.isEmpty()) {
+            userName.setText(name);
+        }
+        if (!email.isEmpty()) {
+            userEmail.setText(email);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Έλεγχος αν ο χρήστης είναι συνδεδεμένος
+        if (!isUserLoggedIn()) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+            startActivity(intent);
+            finishAffinity();
+        }
+    }
+
+    private boolean isUserLoggedIn() {
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        return prefs.contains("userEmail") && !prefs.getString("userEmail", "").isEmpty();
     }
 } 

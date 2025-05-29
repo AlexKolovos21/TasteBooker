@@ -14,28 +14,42 @@ import java.util.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.NumberPicker
+import android.widget.TextView
 
 class BookingActivity : AppCompatActivity() {
     private lateinit var database: AppDatabase
     private var selectedDate: Date? = null
     private var selectedHour: Int? = null
-    private var restaurantId: Int = 0
+    private var restaurantId: Int = -1
+    private var restaurantName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_booking)
 
         database = AppDatabase.getDatabase(this)
-        restaurantId = intent.getIntExtra("restaurant_id", 0)
+        
+        // Get restaurant data from intent
+        restaurantId = intent.getIntExtra("restaurant_id", -1)
+        restaurantName = intent.getStringExtra("restaurant_name") ?: "Εστιατόριο"
+        
+        if (restaurantId == -1) {
+            Toast.makeText(this, "Λάθος στοιχεία εστιατορίου", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         setupViews()
     }
 
     private fun setupViews() {
+        val restaurantNameView = findViewById<TextView>(R.id.restaurant_name)
         val dateButton = findViewById<Button>(R.id.date_button)
         val hourPicker = findViewById<NumberPicker>(R.id.hour_picker)
         val guestsPicker = findViewById<NumberPicker>(R.id.guests_picker)
         val bookButton = findViewById<Button>(R.id.book_button)
+
+        restaurantNameView.text = restaurantName
 
         guestsPicker.minValue = 1
         guestsPicker.maxValue = 20
@@ -90,11 +104,11 @@ class BookingActivity : AppCompatActivity() {
 
     private fun validateInput(): Boolean {
         if (selectedDate == null) {
-            Toast.makeText(this, "Please select a date", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Παρακαλώ επιλέξτε ημερομηνία", Toast.LENGTH_SHORT).show()
             return false
         }
         if (selectedHour == null) {
-            Toast.makeText(this, "Please select an hour", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Παρακαλώ επιλέξτε ώρα", Toast.LENGTH_SHORT).show()
             return false
         }
         return true
@@ -102,13 +116,11 @@ class BookingActivity : AppCompatActivity() {
 
     private fun createReservation(guests: Int) {
         lifecycleScope.launch {
-            val userId = getSharedPreferences("TasteBookerPrefs", MODE_PRIVATE)
+            val userId = getSharedPreferences("AppPrefs", MODE_PRIVATE)
                 .getInt("userId", -1)
 
-            Toast.makeText(this@BookingActivity, "userId: $userId, restaurantId: $restaurantId", Toast.LENGTH_LONG).show()
-
             if (userId == -1) {
-                Toast.makeText(this@BookingActivity, "Please login first", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@BookingActivity, "Παρακαλώ συνδεθείτε πρώτα", Toast.LENGTH_SHORT).show()
                 return@launch
             }
 
@@ -122,10 +134,10 @@ class BookingActivity : AppCompatActivity() {
 
             try {
                 database.reservationDao().insertReservation(reservation)
-                Toast.makeText(this@BookingActivity, "Reservation created successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@BookingActivity, "Η κράτηση δημιουργήθηκε επιτυχώς", Toast.LENGTH_SHORT).show()
                 finish()
             } catch (e: Exception) {
-                Toast.makeText(this@BookingActivity, "Error creating reservation: ${e.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@BookingActivity, "Σφάλμα κατά τη δημιουργία κράτησης: ${e.message}", Toast.LENGTH_SHORT).show()
             }
         }
     }

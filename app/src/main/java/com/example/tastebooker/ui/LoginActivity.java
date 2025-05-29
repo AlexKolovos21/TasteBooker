@@ -36,14 +36,17 @@ public class LoginActivity extends AppCompatActivity {
         executorService = Executors.newSingleThreadExecutor();
         sharedPreferences = getSharedPreferences("AppPrefs", MODE_PRIVATE);
 
+        initViews();
+        setupClickListeners();
+        
         // Έλεγχος αν ο χρήστης είναι ήδη συνδεδεμένος
         if (isUserLoggedIn()) {
             startMainActivity();
             return;
         }
-
-        initViews();
-        setupClickListeners();
+        
+        // Δημιουργία admin χρήστη αν δεν υπάρχει
+        createAdminIfNotExists();
     }
 
     private void initViews() {
@@ -58,6 +61,19 @@ public class LoginActivity extends AppCompatActivity {
         registerTextView.setOnClickListener(v -> {
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
+        });
+    }
+
+    private void createAdminIfNotExists() {
+        executorService.execute(() -> {
+            // Έλεγχος αν υπάρχει ήδη ο admin στη βάση
+            final User admin = database.userDao().getUserByEmail("admin@gmail.com");
+            
+            if (admin == null) {
+                // Δημιουργία admin χρήστη αν δεν υπάρχει
+                final User newAdmin = new User("admin@gmail.com", "pass1234", "Admin", "1234567890");
+                database.userDao().insert(newAdmin);
+            }
         });
     }
 
@@ -90,16 +106,34 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("userName", user.getName());
         editor.putString("userEmail", user.getEmail());
         editor.apply();
+        
+        // Debug message
+        Toast.makeText(this, "Saved user ID: " + user.getId(), Toast.LENGTH_SHORT).show();
     }
 
     private boolean isUserLoggedIn() {
-        return sharedPreferences.getInt("userId", -1) != -1;
+        SharedPreferences prefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
+        int userId = prefs.getInt("userId", -1);
+        String userEmail = prefs.getString("userEmail", "");
+        return userId != -1 && !userEmail.isEmpty();
     }
 
     private void startMainActivity() {
         Intent intent = new Intent(this, RestaurantListActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Έλεγχος αν ο χρήστης είναι ήδη συνδεδεμένος
+        if (isUserLoggedIn()) {
+            startMainActivity();
+        }
     }
 
     @Override
