@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"/>
+
+    <Button
+        android:id="@+id/date_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Επιλέξτε ημερομηνία"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.TasteBooker.Button"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ώρα κράτησης:"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <NumberPicker
+        android:id="@+id/hour_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Αριθμός ατόμων:"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"/>
+
+    <NumberPicker
+        android:id="@+id/guests_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/book_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Κράτηση"
+        android:padding="12dp"
+        app:cornerRadius="8dp"
+        style="@style/Widget.TasteBooker.Button"/>
+
+</LinearLayout> 
